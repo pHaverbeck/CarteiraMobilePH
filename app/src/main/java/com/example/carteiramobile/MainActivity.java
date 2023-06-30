@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.carteiramobile.DataBaseHelper;
 import com.example.carteiramobile.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listaUsuarios;
 
     ArrayAdapter usuarioArrayAdapter;
+
     DataBaseHelper dataBaseHelper;
 
     @Override
@@ -79,19 +81,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        /*
         btEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Botão Editar", Toast.LENGTH_SHORT).show();
             }
         });
-
+        */
+        /*
         btDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Botão Deletar", Toast.LENGTH_SHORT).show();
             }
         });
+        */
+
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,22 +108,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Selecionar item da lista
         listaUsuarios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Usuario usuarioClicado = (Usuario) parent.getItemAtPosition(position);
-                dataBaseHelper.deletarUm(usuarioClicado);
-                mostrarLista(dataBaseHelper);
 
-                Toast.makeText(MainActivity.this, "Usuario deletado", Toast.LENGTH_SHORT).show();
+
+/*
+                // Click listener para o botão editar
+                btEditar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dataBaseHelper.editarUm(usuarioClicado);
+                        mostrarLista(dataBaseHelper);
+                    }
+                });
+*/
+                // Click listener para o botão deletar
+                btDeletar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dataBaseHelper.deletarUm(usuarioClicado);
+                        mostrarLista(dataBaseHelper);
+                        // Toast.makeText(MainActivity.this, "Usuário Deletado", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
     }
 
-    // Método usado para Lista aparecer ao abrir app ou ao criar novo usuario, já atualizada
+    // Método usado para Lista aparecer ao abrir app ou ao fazer alterações, já atualizada
     private void mostrarLista(DataBaseHelper dataBaseHelper) {
         usuarioArrayAdapter = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_selectable_list_item, dataBaseHelper.getEveryone());
         listaUsuarios.setAdapter(usuarioArrayAdapter);
     }
+
+
+
 }

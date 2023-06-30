@@ -17,10 +17,7 @@ public class Usuario {
     // toString
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return id + " - " + name;
     }
 
     // Getters e Setters

@@ -93,7 +93,7 @@
     <ListView
         android:id="@+id/listaUsuarios"
         android:layout_width="250dp"
-        android:layout_height="208dp"
+        android:layout_height="202dp"
         android:layout_marginStart="16dp"
         app:layout_constraintEnd_toStartOf="@+id/btCriar"
         app:layout_constraintHorizontal_bias="0.0"
@@ -104,11 +104,11 @@
         android:id="@+id/btLogin"
         android:layout_width="132dp"
         android:layout_height="89dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="68dp"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaUsuarios" />
+        app:layout_constraintTop_toBottomOf="@+id/btDeletar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,20 +53,25 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean deletarUm (Usuario usuario) {
+    public long editarUm (Usuario usuario) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUNA_NOME_USUARIO, usuario.getName());
+
+        long insert = db.update(TABELA_USUARIO, cv, "id = ?", new String[]{String.valueOf(usuario.getId())});
+        db.close();
+        return insert;
+    }
+
+    //public boolean deletarUm (Usuario usuario) {
+    public long deletarUm (Usuario usuario) {
 
         // Busca usuario na database, se encontrar deleta
         SQLiteDatabase db = this.getWritableDatabase();
-        String queryString = "DELETE FROM " + TABELA_USUARIO + "WHERE " + COLUNA_ID + " = " + usuario.getId();
-
-        Cursor cursor = db.rawQuery(queryString, null);
-
-        if (cursor.moveToFirst()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        long id = db.delete(TABELA_USUARIO, "id = ?", new String[]{String.valueOf(usuario.getId())});
+        db.close();
+        return id;
     }
 
     public List<Usuario> getEveryone() {
