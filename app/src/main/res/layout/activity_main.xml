@@ -45,7 +45,7 @@
         android:inputType="text"
         android:selectAllOnFocus="true"
         android:textColor="#00BCD4"
-        android:textColorHint="#00BCD4"
+        android:textColorHint="#7E7E7E"
         app:layout_constraintEnd_toStartOf="@+id/btCriar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -57,7 +57,7 @@
             android:shadowColor="#FFC107"
             android:textAlignment="center"
             android:textColor="#00BCD4"
-            android:textColorHint="#00BCD4"
+            android:textColorHint="#7E7E7E"
             android:textSize="14dp"
             app:layout_constraintStart_toEndOf="@+id/etAtivo"
             app:layout_constraintTop_toBottomOf="@+id/textViewApp2" />
@@ -75,7 +75,7 @@
             android:shadowColor="#FFC107"
             android:textAlignment="center"
             android:textColor="#00BCD4"
-            android:textColorHint="#00BCD4"
+            android:textColorHint="#7E7E7E"
             android:textSize="14dp"
             app:layout_constraintStart_toEndOf="@+id/etQuantidade"
             app:layout_constraintTop_toBottomOf="@+id/textViewApp2" />
@@ -93,7 +93,7 @@
             android:shadowColor="#FFC107"
             android:textAlignment="center"
             android:textColor="#00BCD4"
-            android:textColorHint="#00BCD4"
+            android:textColorHint="#7E7E7E"
             android:textSize="14dp"
             app:layout_constraintStart_toEndOf="@+id/etValor"
             app:layout_constraintTop_toBottomOf="@+id/textViewApp2" />
@@ -169,7 +169,7 @@
             android:shadowColor="#FFC107"
             android:textAlignment="center"
             android:textColor="#00BCD4"
-            android:textColorHint="#00BCD4"
+            android:textColorHint="#7E7E7E"
             android:textSize="14dp"
             app:layout_constraintStart_toEndOf="@+id/tvId"
             app:layout_constraintTop_toBottomOf="@+id/textViewApp2" />
