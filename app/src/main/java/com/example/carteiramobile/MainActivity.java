@@ -2,6 +2,7 @@ package com.example.carteiramobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,12 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.example.carteiramobile.DataBaseHelper;
-import com.example.carteiramobile.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,20 +86,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         */
-        /*
-        btDeletar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Botão Deletar", Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
 
 
-        btLogin.setOnClickListener(new View.OnClickListener() {
+        // Criando view para o evento de click do botão de Login
+        View login = findViewById(R.id.btLogin);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Botão Login", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                // Intent para fazer a mudança de tela ao clickar em 'Login'
+                Intent mudatela = new Intent(view.getContext(), CadastroOperacoes.class);
+                // Inicia a atividade (intent de mudar a tela)
+                startActivity(mudatela);
             }
         });
 

@@ -64,7 +64,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return insert;
     }
 
-    //public boolean deletarUm (Usuario usuario) {
+
     public long deletarUm (Usuario usuario) {
 
         // Busca usuario na database, se encontrar deleta
