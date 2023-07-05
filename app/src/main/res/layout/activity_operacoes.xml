@@ -87,7 +87,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="28dp"
             android:ems="10"
-            android:hint="15/01/2023"
+            android:hint="15-01-2023"
             android:inputType="date"
             android:selectAllOnFocus="true"
             android:shadowColor="#FFC107"

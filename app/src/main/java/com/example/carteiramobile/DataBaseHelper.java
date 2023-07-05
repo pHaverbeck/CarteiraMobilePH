@@ -13,10 +13,12 @@ import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
+    //Tabela e Colunas para USUARIO
     public static final String TABELA_USUARIO = "TABELA_USUARIO";
     public static final String COLUNA_NOME_USUARIO = "NOME_USUARIO";
     public static final String COLUNA_ID = "ID";
 
+    // Tabela e Colunas para OPERACAO
     public static final String TABELA_OPERACAO = "TABELA_OPERACAO";
 
     public static final String COLUNA_ID_OPERACAO = "ID_OPERACAO";
@@ -29,25 +31,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String COLUNA_DATA = "DATA";
 
+    // Criação da base de dados, ficou com o nome de "usuarios.db"
     public DataBaseHelper(@Nullable Context context) {
         super(context, "usuarios.db", null, 1);
     }
 
-    // Cria nova database
+    // Preenche nova base de dados
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        // Comando que irá criar a primeira tabela (USUARIO e seus conteúdos)
         String createTable = "CREATE TABLE " + TABELA_USUARIO + " (" + COLUNA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUNA_NOME_USUARIO + " TEXT)";
 
+        // Comando que irá criar a segunda tabela (OPERACAO e seus conteúdos)
         String createTableOp = "CREATE TABLE " + TABELA_OPERACAO + " (" + COLUNA_ID_OPERACAO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUNA_ATIVO + " TEXT, " + COLUNA_QUANTIDADE + " INTEGER, " + COLUNA_VALOR + " INTEGER, " + COLUNA_DATA + " DATE)";
 
+        // Executa os comandos declarados anteriormente e cria as tabelas
+        // Obs: Por algum motivo que não consegui identificar, a segunda tabela (OPERACAO) não está sendo criada na base de dados
         db.execSQL(createTable);
         db.execSQL(createTableOp);
-
     }
 
-    // Atualiza database quando há modificações
+    // Atualiza base de dados quando há modificações
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABELA_USUARIO);
@@ -55,6 +62,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // Método de CREATE para o CRUD de Usuários
     public boolean criarUm (Usuario usuario) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -72,6 +80,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // Método de CREATE para o CRUD de Operações
     public boolean criarOp (Operacoes operacoes) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -92,6 +101,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // Método de UPDATE para o CRUD de Usuários
+    // Não encontrei nenhum tutorial, video ou fórum que me ensinasse como implementar esta parte do CRUD do jeito que eu queria
+    // Foram diversas tentativas, pois eu queria fazer o aplicativo do meu jeito, e não copiar de alguém, mas não tive sucesso
+    // Apesar de não ter dado certo, deixei a última tentativa em comentário abaixo
+
     /*
     public long editarUm (Usuario usuario) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -105,6 +119,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
     */
 
+    // Método de DELETE para o CRUD de Usuários
     public long deletarUm (Usuario usuario) {
 
         // Busca usuario na database, se encontrar deleta
@@ -114,6 +129,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    // Método de READ para o CRUD de Usuários
     public List<Usuario> getEveryone() {
 
         List<Usuario> retornaLista = new ArrayList<>();
@@ -145,6 +161,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return retornaLista;
     }
 
+
+    // Método de READ para o CRUD de Operações (Apesar de o código estar aqui, a tabela de Operações por algum motivo
+    // não está sendo criada ao executar, e portanto, não consegui verificar o correto funcionamento dos dois primeiros métodos.
+    // Sendo assim, os métodos de Update e Delete nem foram escritos aqui, porém, seriam similares aos já feitos para o CRUD de Usuários
     public List<Operacoes> getAllOperacoes() {
 
         List<Operacoes> retornaListaOp = new ArrayList<>();

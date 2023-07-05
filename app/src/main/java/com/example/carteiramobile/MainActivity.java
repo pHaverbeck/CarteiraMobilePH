@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         mostrarLista(dataBaseHelper);
 
-        // Click listeners botões
+        // Click listeners botões:
+        // Botão CRIAR
         btCriar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Botão LISTAR (foi criado de começo mas acabou tornando-se obsoleto, pois após cada método a lista atualiza automaticamente)
         btListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,24 +79,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        /*
-        btEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Botão Editar", Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
-
-
         // Criando view para o evento de click do botão de Login
         View login = findViewById(R.id.btLogin);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent para fazer a mudança de tela ao clickar em 'Login'
+
+                // Intent para fazer a mudança de tela ao clicar em 'Login'
                 Intent mudatela = new Intent(view.getContext(), CadastroOperacoes.class);
+
                 // Inicia a atividade (intent de mudar a tela)
                 startActivity(mudatela);
             }
@@ -106,9 +99,14 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Usuario usuarioClicado = (Usuario) parent.getItemAtPosition(position);
 
-
 /*
-                // Click listener para o botão editar
+            A forma como eu queria fazer meu aplicativo era com as listas na mesma tela dos botões
+            Sendo assim, ao selecionar um elemento da lista, este deveria poder ser EDITADO ou DELETADO
+
+*/
+                // Botão EDITAR (Não consegui implementar esta função, mas conforme explicado em comentário na classe 'DataBaseHelper',
+                // deixei o código da ultima tentativa aqui, em comentário)
+/*
                 btEditar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -117,13 +115,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 */
-                // Click listener para o botão deletar
+                // Botão DELETAR
                 btDeletar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dataBaseHelper.deletarUm(usuarioClicado);
                         mostrarLista(dataBaseHelper);
-                        // Toast.makeText(MainActivity.this, "Usuário Deletado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Usuário Deletado", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -131,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Método usado para Lista aparecer ao abrir app ou ao fazer alterações, já atualizada
+    // Método usado para Lista aparecer ao abrir app ou ao fazer alterações, já atualizada (este método torna desnecessário o botão LISTAR)
     private void mostrarLista(DataBaseHelper dataBaseHelper) {
         usuarioArrayAdapter = new ArrayAdapter<Usuario>(MainActivity.this, android.R.layout.simple_selectable_list_item, dataBaseHelper.getEveryone());
         listaUsuarios.setAdapter(usuarioArrayAdapter);

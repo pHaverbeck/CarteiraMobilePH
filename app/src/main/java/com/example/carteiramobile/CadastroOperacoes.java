@@ -33,6 +33,7 @@ public class CadastroOperacoes extends AppCompatActivity {
         etData = findViewById(R.id.etData);
         listaOperacoes = findViewById(R.id.listaOperacoes);
 
+        // Botão CRIAR
         btCriarOp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +42,7 @@ public class CadastroOperacoes extends AppCompatActivity {
 
                 try {
                     operacoes = new Operacoes(-1, etAtivo.getText().toString(), Integer.parseInt(etQuantidade.getText().toString()), Integer.parseInt(etValor.getText().toString()), etData.getText().toString());
-                   // Toast.makeText(CadastroOperacoes.this, operacoes.toString(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(CadastroOperacoes.this, operacoes.toString(), Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e) {
                     Toast.makeText(CadastroOperacoes.this, "Preencher todos os campos!", Toast.LENGTH_SHORT).show();
@@ -55,6 +56,7 @@ public class CadastroOperacoes extends AppCompatActivity {
             }
         });
 
+        // Botão EDITAR (conforme explicado anteriormente, não funciona, ficou aqui apenas a versão teste)
         btEditarOp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +64,8 @@ public class CadastroOperacoes extends AppCompatActivity {
             }
         });
 
+        // Botão DELETAR (conforme explicado anteriormente, visto que não funciona a criação da tabela na base de dados, não há o que deletar
+        // Ficou aqui apenas a versão teste)
         btDeletarOp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,5 +73,6 @@ public class CadastroOperacoes extends AppCompatActivity {
             }
         });
 
+        // OBS: Botão LISTAR nem foi criado nesta tela, pois a ideia era fazer a atualização automática da lista, como na tela anterior
     }
 }
