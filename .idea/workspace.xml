@@ -11,10 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="232081e6-6fba-4f42-89a2-f92f61bd9350" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/CadastroOperacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/CadastroOperacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/DataBaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/carteiramobile/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_operacoes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_operacoes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

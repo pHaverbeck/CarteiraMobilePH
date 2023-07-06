@@ -48,21 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
                 Usuario usuario;
 
-                try {
+                if (!etNomeUsuario.getText().toString().equals("")) {
                     usuario = new Usuario(-1, etNomeUsuario.getText().toString());
-                    Toast.makeText(MainActivity.this, usuario.toString(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(MainActivity.this, usuario.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show();
                 }
-
-                catch (Exception e) {
+                else {
                     Toast.makeText(MainActivity.this, "Usuário Inválido", Toast.LENGTH_SHORT).show();
                     usuario = new Usuario (-1, "error");
                 }
 
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
-
                 boolean msgSucesso = dataBaseHelper.criarUm(usuario);
-                Toast.makeText(MainActivity.this, "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-
                 mostrarLista(dataBaseHelper);
             }
         });
